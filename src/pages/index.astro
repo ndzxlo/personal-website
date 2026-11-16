@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import profilePicture from "../images/profile-cropped.jpg";
+---
+
+<Layout uid="Nyiko Mthombeni">
+    <div class="flex items-center justify-center h-full px-6">
+        <div
+            class="flex flex-col md:flex-row items-center gap-8 md:gap-12 text-center md:text-left"
+        >
+            <div
+                class="hero-portrait size-36 md:size-44 shrink-0 rounded-full overflow-hidden"
+            >
+                <Image
+                    src={profilePicture}
+                    alt="profile picture of Nyiko Mthombeni"
+                    loading="eager"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+            <div class="flex flex-col gap-y-3">
+                <h1
+                    class="hero-title text-5xl lg:text-7xl font-serif font-medium leading-[1.25]"
+                >
+                    Nyiko Mthombeni
+                </h1>
+                <p class="hero-text text-lg font-sans font-light text-gray-500">
+                    Software Developer
+                </p>
+                <nav
+                    class="hero-text flex flex-row justify-center md:justify-start gap-x-6 mt-4 text-sm text-neutral-900"
+                >
+                    <a href="/projects" class="link-underline">Projects</a>
+                    <a href="/experience" class="link-underline">Experience</a>
+                    <a href="/education" class="link-underline">Education</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</Layout>

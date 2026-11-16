@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import awsBadge from "../images/aws-badge.png";
+import Scrollspy from "../components/scrollspy.astro";
+---
+
+<Layout uid="Education">
+    <div
+        class="h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hidden scroll-container"
+    >
+        <!-- Card 1 -->
+        <section class="flex justify-center items-center h-full snap-start">
+            <div
+                class="flex flex-col gap-y-4 w-11/12 md:w-3/5 p-8 bg-neutral-100 rounded-md shadow-lg card-hover hero-image"
+            >
+                <div class="flex flex-col gap-y-1">
+                    <h1
+                        class="font-serif font-semibold text-2xl text-neutral-900"
+                    >
+                        BSc Computer Science @ <span class="text-emerald-700"
+                            >University of the Witwatersrand</span
+                        >
+                    </h1>
+                </div>
+                <div
+                    class="flex flex-col gap-y-3 text-gray-700 leading-relaxed"
+                >
+                    <p>
+                        <span class="font-semibold text-neutral-900"
+                            >Majored</span
+                        > in Computer Science and Information Systems
+                    </p>
+                    <p>
+                        <span class="font-semibold text-neutral-900"
+                            >Relevant coursework:</span
+                        > Intro to Data Structures and Algorithms, Mobile Computing
+                        (Java and Android development), Database Fundamentals (SQL),
+                        Software Design, Software Design Project, Advanced Analysis
+                        of Algorithms, Operating Systems
+                    </p>
+                    <div class="flex flex-col gap-y-1">
+                        <p class="font-semibold text-neutral-900">Projects:</p>
+                        <ul
+                            class="list-disc list-outside pl-5 flex flex-col gap-y-1"
+                        >
+                            <li>
+                                React app that allowed users to allocate
+                                timeslots for different event types on their
+                                calendar and could then share links where their
+                                recipients could select timeslots for bookings,
+                                built using React and JavaScript with a Firebase
+                                backend and Google Auth.
+                            </li>
+                            <li>
+                                Android app that helps connect donors and
+                                donees. Built using Java on Android Studio with
+                                a database hosted on MySQL.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 2 -->
+        <section class="flex justify-center items-center h-full snap-start">
+            <a
+                href="https://www.credly.com/badges/c811137d-c186-4d4f-8784-1fa8b40c5a3c/public_url"
+                class="group flex flex-col gap-y-4 w-11/12 md:w-3/5 p-8 bg-neutral-100 rounded-md shadow-lg card-hover hero-image"
+            >
+                <div class="flex flex-row justify-between items-center">
+                    <div class="flex flex-col gap-y-1">
+                        <h1
+                            class="font-serif font-semibold text-2xl text-neutral-900"
+                        >
+                            Certified Cloud Practitioner @ <span
+                                class="text-emerald-700">AWS</span
+                            >
+                        </h1>
+                        <h3
+                            class="text-sm font-medium tracking-wide text-gray-400 uppercase"
+                        >
+                            May 2025
+                        </h3>
+                    </div>
+                    <Image
+                        src={awsBadge}
+                        alt="AWS Certified Cloud Practitioner badge"
+                        class="w-14 h-14 mt-3 transform transition-transform duration-300 ease-in-out group-hover:scale-115"
+                    />
+                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    The AWS Certified Cloud Practitioner validates foundational,
+                    high-level understanding of AWS Cloud, services, and
+                    terminology.
+                </p>
+                <div class="flex flex-col gap-y-1">
+                    <p class="font-semibold text-neutral-900">Skills:</p>
+                    <ul
+                        class="list-disc list-outside pl-5 text-gray-700 leading-relaxed flex flex-col gap-y-1"
+                    >
+                        <li>Cloud computing</li>
+                        <li>AWS IAM</li>
+                        <li>EC2</li>
+                        <li>
+                            AWS Storage Solutions (S3, EBS, Instance store, EFS)
+                        </li>
+                        <li>
+                            Networking (Subnets, Security Groups, and Network
+                            Access Control Lists)
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </section>
+    </div>
+    <Scrollspy />
+</Layout>

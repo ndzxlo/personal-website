@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Scrollspy from "../../components/scrollspy.astro";
+import kimberlyImage from "../../images/kimberly-screenshot.png";
+import NodeIcon from "../../assets/nodeIcon.svg";
+import ExpressIcon from "../../assets/expressIcon.svg";
+import MongoIcon from "../../assets/mongoIcon.svg";
+import ReactIcon from "../../assets/reactIcon.svg";
+import Arrow from "../../assets/arrow.svg";
+---
+
+<Layout uid="Projects">
+    <div
+        class="h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hidden scroll-container"
+    >
+        <section class="flex justify-center items-center h-full snap-start">
+            <a
+                href="/projects/kimberly"
+                class="group grid grid-cols-1 md:grid-cols-[2fr_3fr] items-center gap-8 w-11/12 md:w-2/3 p-8 bg-neutral-100 rounded-md shadow-lg card-hover hero-image"
+            >
+                <Image
+                    src={kimberlyImage}
+                    alt="Screenshot of Kimberly AI"
+                    class="w-full h-auto rounded-md shadow-sm"
+                />
+                <div class="flex flex-col gap-y-4">
+                    <div class="flex flex-col gap-y-1">
+                        <h1
+                            class="font-serif font-semibold text-2xl text-neutral-900"
+                        >
+                            Kimberly <span class="text-emerald-700">AI</span>
+                        </h1>
+                        <h3
+                            class="text-sm font-medium tracking-wide text-gray-400 uppercase"
+                        >
+                            The present meeting assistant &middot; 2025 &ndash;
+                            2026
+                        </h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Kimberly is an AI meeting assistant that takes digital
+                        notes, minutes and tasks for you, it generates a meeting
+                        transcription as well as provide you with live meeting
+                        mini-summaries. You can also ask Kimberly about what has
+                        been said in a meeting without waiting until after the
+                        meeting to review the notes.
+                    </p>
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="flex flex-row items-center gap-x-3">
+                            <MongoIcon class="size-6" />
+                            <ExpressIcon class="size-8 text-gray-800" />
+                            <ReactIcon class="size-6" />
+                            <NodeIcon class="size-6" />
+                        </div>
+                        <span
+                            class="flex flex-row items-center gap-x-2 text-sm font-medium text-emerald-700"
+                        >
+                            View project
+                            <Arrow
+                                class="size-4 rotate-180 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                            />
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </section>
+    </div>
+    <Scrollspy />
+</Layout>

@@ -1,0 +1,121 @@
+---
+import "../styles/global.css";
+import { Font } from "astro:assets";
+import TransitionOverlay from "../components/TransitionOverlay.astro";
+import { PAGES, pageMeta } from "../scripts/utils.js";
+const { uid } = Astro.props;
+const meta = pageMeta(Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <Font cssVariable="--font-prata" />
+        <Font cssVariable="--font-schibsted" />
+        <title>{uid}</title>
+        <!-- Cover the page for the intro before first paint. The timeout is a
+             safety net so the site is never stuck behind the cover. -->
+        <script is:inline>
+            document.documentElement.classList.add("is-intro");
+            setTimeout(function () {
+                document.documentElement.classList.remove("is-intro");
+            }, 6000);
+        </script>
+        <noscript>
+            <style>
+                .transition__overlay {
+                    display: none;
+                }
+            </style>
+        </noscript>
+    </head>
+    <body data-barba="wrapper" class="overflow-hidden">
+        <header class="site-header">
+            <a href="/" class="site-header__mark">Nyiko Mthombeni</a>
+            <div class="site-header__right">
+                <span class="site-header__page" data-page-label
+                    >{meta.title}</span
+                >
+                <button
+                    id="menu-toggle"
+                    class="menu-toggle"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                    aria-controls="nav-overlay"
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <div id="nav-overlay" class="nav-overlay">
+            <ul class="nav-overlay__list">
+                {
+                    PAGES.map((page, i) => (
+                        <li>
+                            <a
+                                href={page.path}
+                                class="nav-overlay__link"
+                                aria-current={
+                                    page.path === meta.section
+                                        ? "page"
+                                        : undefined
+                                }
+                            >
+                                <span class="nav-overlay__index menu-fade">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
+                                <span class="nav-overlay__mask">
+                                    <span class="menu-text">{page.title}</span>
+                                </span>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+            <blockquote class="nav-overlay__quote menu-fade">
+                <p>Good design is as little design as possible</p>
+                <footer>— Dieter Rams</footer>
+            </blockquote>
+        </div>
+
+        <div
+            data-barba="container"
+            data-barba-namespace={uid}
+            class="app__wrapper"
+        >
+            <main class="content__wrapper w-full h-full">
+                <slot />
+            </main>
+        </div>
+
+        <footer class="site-footer">
+            <span class="site-footer__count">
+                <span data-page-index>{meta.index}</span>
+                <span class="site-footer__rule"></span>
+                <span>{meta.total}</span>
+            </span>
+            <nav class="site-footer__links">
+                <a
+                    href="https://linkedin.com/in/nyiko-mthombeni"
+                    target="_blank"
+                    rel="noopener"
+                    class="link-underline">LinkedIn</a
+                >
+                <a
+                    href="https://github.com/ndzxlo"
+                    target="_blank"
+                    rel="noopener"
+                    class="link-underline">GitHub</a
+                >
+            </nav>
+        </footer>
+
+        <TransitionOverlay />
+        <script src="../scripts/animation.js"></script>
+    </body>
+</html>

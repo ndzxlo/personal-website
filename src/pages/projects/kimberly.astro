@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/ProjectsLayout.astro";
+import { Image } from "astro:assets";
+import kimberlyImage from "../../images/kimberly-screenshot.png";
+import NodeIcon from "../../assets/nodeIcon.svg";
+import JsIcon from "../../assets/js.svg";
+import ExpressIcon from "../../assets/expressIcon.svg";
+import OpenAiIcon from "../../assets/openai.svg";
+import GeminiIcon from "../../assets/gemini.svg";
+import RedisIcon from "../../assets/redis.svg";
+import MongoIcon from "../../assets/mongoIcon.svg";
+import ReactIcon from "../../assets/reactIcon.svg";
+import ViteIcon from "../../assets/vite.svg";
+import TypescriptIcon from "../../assets/typescript.svg";
+import TailwindIcon from "../../assets/tailwind.svg";
+import ZustandIcon from "../../assets/zustand.svg";
+---
+
+<Layout uid="Kimberly">
+    <article
+        class="flex flex-col gap-y-6 w-full p-8 bg-neutral-100 rounded-md shadow-lg hero-image"
+    >
+        <div class="flex flex-col gap-y-1">
+            <h1 class="font-serif font-semibold text-3xl text-neutral-900">
+                Kimberly <span class="text-emerald-700">AI</span>
+            </h1>
+            <h3
+                class="text-sm font-medium tracking-wide text-gray-400 uppercase"
+            >
+                The present meeting assistant &middot; 2025 &ndash; 2026
+            </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-y-6 items-start gap-x-8">
+            <Image
+                src={kimberlyImage}
+                alt="Screenshot of Kimberly AI"
+                class="w-full h-auto rounded-md shadow-sm"
+            />
+            <div class="flex flex-col gap-y-5">
+                <div class="flex flex-col gap-y-1">
+                    <h3 class="font-semibold text-neutral-900">Overview</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Kimberly is an AI meeting assistant that takes digital
+                        notes, minutes and tasks for you, it generates a meeting
+                        transcription as well as provide you with live meeting
+                        mini-summaries. You can also ask Kimberly about what has
+                        been said in a meeting without waiting until after the
+                        meeting to review the notes.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-y-1">
+                    <h3 class="font-semibold text-neutral-900">
+                        Project structure
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Kimberly is an AI meeting assistant that takes digital
+                        notes, minutes and tasks for you, it generates a meeting
+                        transcription as well as provide you with live meeting
+                        mini-summaries. You can also ask Kimberly about what has
+                        been said in a meeting without waiting until after the
+                        meeting to review the notes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-y-6 gap-x-8 pt-6 border-t border-neutral-200">
+            <div class="flex flex-col gap-y-2">
+                <h3 class="font-semibold text-neutral-900">Frontend</h3>
+                <div class="flex flex-row items-center gap-x-3 h-8">
+                    <ReactIcon class="size-6" />
+                    <ViteIcon class="size-6" />
+                    <TypescriptIcon class="size-6" />
+                    <TailwindIcon class="size-6" />
+                    <ZustandIcon class="size-6" />
+                </div>
+            </div>
+            <div class="flex flex-col gap-y-2">
+                <h3 class="font-semibold text-neutral-900">Backend</h3>
+                <div class="flex flex-row items-center gap-x-3 h-8">
+                    <NodeIcon class="size-6" />
+                    <JsIcon class="size-6" />
+                    <ExpressIcon class="size-8 text-gray-800" />
+                    <MongoIcon class="size-6" />
+                    <RedisIcon class="size-6" />
+                    <OpenAiIcon class="size-6 text-gray-800" />
+                    <GeminiIcon class="size-6" />
+                </div>
+            </div>
+        </div>
+    </article>
+</Layout>
