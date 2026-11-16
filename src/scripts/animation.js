@@ -5,6 +5,7 @@ import { select, selectAll, normalizePath, pageMeta } from "./utils";
 import { SplitText } from "gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
 import { initScrollSpy } from "./scrollspy";
+import { haptic } from "./haptics";
 
 const CLIP_FULL = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
 const CLIP_TOP = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
@@ -135,6 +136,7 @@ class App {
 
     bindNav() {
         this.menuToggle?.addEventListener("click", () => {
+            haptic("light");
             this.setMenuOpen(!this.menuState.isOpen);
         });
 
@@ -149,19 +151,29 @@ class App {
         document.addEventListener("click", (e) => {
             const link = e.target.closest?.("a[href]");
 
-            if (!link || link.target) return;
+            // Section dots handle their own clicks (scrollspy.js)
+            if (!link || link.closest(".scroll-indicator")) return;
 
             const url = new URL(link.href, window.location.href);
 
-            if (url.origin !== window.location.origin) return;
+            // Leaving the site (LinkedIn, GitHub, the AWS badge): a light tick
+            if (link.target || url.origin !== window.location.origin) {
+                haptic("selection");
+                return;
+            }
 
             if (
                 normalizePath(url.pathname) ===
                 normalizePath(window.location.pathname)
             ) {
+                haptic("light");
                 e.preventDefault();
                 this.setMenuOpen(false);
+                return;
             }
+
+            // A page transition is about to start
+            haptic("soft");
             // Capture phase: this has to run before Barba's own click
             // handler, which updates the URL as soon as it takes a link.
         }, true);

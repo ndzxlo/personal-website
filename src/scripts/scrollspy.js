@@ -1,3 +1,5 @@
+import { haptic } from "./haptics";
+
 export function initScrollSpy(barbaContainer) {
     const container = barbaContainer.querySelector(".scroll-container");
 
@@ -38,6 +40,7 @@ export function initScrollSpy(barbaContainer) {
     dots.forEach((dot, i) => {
         dot.addEventListener("click", (e) => {
             e.preventDefault();
+            haptic("selection");
             sectionsArray[i]?.scrollIntoView({ behavior: "smooth" });
         });
     });

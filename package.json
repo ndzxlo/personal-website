@@ -21,7 +21,8 @@
     "react-dom": "^19.2.6",
     "tailwindcss": "^4.3.0",
     "three": "^0.183.2",
-    "vite-plugin-glsl": "^1.5.5"
+    "vite-plugin-glsl": "^1.5.5",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@types/three": "^0.183.1",
