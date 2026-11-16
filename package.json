@@ -10,7 +10,6 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.4.8",
     "@astrojs/react": "^7.1.9",
     "@barba/core": "^2.10.3",
     "@tailwindcss/vite": "^4.3.0",

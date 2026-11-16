@@ -18,7 +18,7 @@ import ZustandIcon from "../../assets/zustand.svg";
 
 <Layout uid="Kimberly">
     <article
-        class="flex flex-col gap-y-6 w-full p-8 bg-neutral-100 rounded-md shadow-lg hero-image"
+        class="flex flex-col gap-y-6 w-full p-6 md:p-8 bg-neutral-100 rounded-md shadow-lg hero-image"
     >
         <div class="flex flex-col gap-y-1">
             <h1 class="font-serif font-semibold text-3xl text-neutral-900">
@@ -27,7 +27,7 @@ import ZustandIcon from "../../assets/zustand.svg";
             <h3
                 class="text-sm font-medium tracking-wide text-gray-400 uppercase"
             >
-                The present meeting assistant &middot; 2025 &ndash; 2026
+                The present meeting assistant &middot; <span class="whitespace-nowrap">2025 &ndash; 2026</span>
             </h3>
         </div>
 
@@ -69,7 +69,7 @@ import ZustandIcon from "../../assets/zustand.svg";
         <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-y-6 gap-x-8 pt-6 border-t border-neutral-200">
             <div class="flex flex-col gap-y-2">
                 <h3 class="font-semibold text-neutral-900">Frontend</h3>
-                <div class="flex flex-row items-center gap-x-3 h-8">
+                <div class="flex flex-row flex-wrap items-center gap-3 min-h-8">
                     <ReactIcon class="size-6" />
                     <ViteIcon class="size-6" />
                     <TypescriptIcon class="size-6" />
@@ -79,7 +79,7 @@ import ZustandIcon from "../../assets/zustand.svg";
             </div>
             <div class="flex flex-col gap-y-2">
                 <h3 class="font-semibold text-neutral-900">Backend</h3>
-                <div class="flex flex-row items-center gap-x-3 h-8">
+                <div class="flex flex-row flex-wrap items-center gap-3 min-h-8">
                     <NodeIcon class="size-6" />
                     <JsIcon class="size-6" />
                     <ExpressIcon class="size-8 text-gray-800" />

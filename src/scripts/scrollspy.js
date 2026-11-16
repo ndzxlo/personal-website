@@ -53,9 +53,13 @@ export function initScrollSpy(barbaContainer) {
                 dots[index]?.classList.add("active");
             });
         },
+        // A section is active while it crosses the middle of the screen. This
+        // also works for sections taller than the screen, which a visibility
+        // threshold would never mark as active.
         {
             root: null,
-            threshold: 0.6,
+            rootMargin: "-50% 0px -50% 0px",
+            threshold: 0,
         },
     );
 

@@ -12,12 +12,12 @@ import Arrow from "../../assets/arrow.svg";
 
 <Layout uid="Projects">
     <div
-        class="h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hidden scroll-container"
+        class="h-full overflow-y-scroll snap-y snap-proximity md:snap-mandatory scroll-smooth scrollbar-hidden scroll-fade scroll-container"
     >
-        <section class="flex justify-center items-center h-full snap-start">
+        <section class="flex justify-center items-center min-h-full px-(--gutter) py-24 snap-start">
             <a
                 href="/projects/kimberly"
-                class="group grid grid-cols-1 md:grid-cols-[2fr_3fr] items-center gap-8 w-11/12 md:w-2/3 p-8 bg-neutral-100 rounded-md shadow-lg card-hover hero-image"
+                class="group grid grid-cols-1 md:grid-cols-[2fr_3fr] items-center gap-6 md:gap-8 w-full md:w-2/3 p-6 md:p-8 bg-neutral-100 rounded-md shadow-lg card-hover hero-image"
             >
                 <Image
                     src={kimberlyImage}
@@ -34,8 +34,7 @@ import Arrow from "../../assets/arrow.svg";
                         <h3
                             class="text-sm font-medium tracking-wide text-gray-400 uppercase"
                         >
-                            The present meeting assistant &middot; 2025 &ndash;
-                            2026
+                            The present meeting assistant &middot; <span class="whitespace-nowrap">2025 &ndash; 2026</span>
                         </h3>
                     </div>
                     <p class="text-gray-700 leading-relaxed">

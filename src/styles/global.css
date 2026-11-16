@@ -58,6 +58,18 @@
     }
 }
 
+/* Scrolling content fades out before it reaches the fixed header and footer,
+   so it never collides with them */
+@utility scroll-fade {
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 3.5rem,
+        #000 5.5rem,
+        #000 calc(100% - 5rem),
+        transparent calc(100% - 3.25rem)
+    );
+}
+
 @theme inline {
     --font-serif: var(--font-prata);
     --font-sans: var(--font-schibsted);
@@ -481,5 +493,15 @@ body::after {
 @media screen and (max-width: 768px) {
     .site-header__page {
         display: none;
+    }
+
+    /* Dots sit in the side gutter instead of on top of the cards */
+    .scroll-indicator {
+        right: calc(var(--gutter) / 2 - 7px);
+    }
+
+    /* Keep the quote clear of the footer links */
+    .nav-overlay__quote {
+        bottom: 4.5rem;
     }
 }
