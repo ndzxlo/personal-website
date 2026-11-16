@@ -6,34 +6,32 @@ import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [glsl(), tailwindcss()],
-  },
+    output: "static",
 
-  devToolbar: {
-    enabled: false,
-  },
-
-  integrations: [react()],
-
-  fonts: [
-    {
-      provider: fontProviders.google(),
-      name: "Prata",
-      cssVariable: "--font-prata",
+    vite: {
+        plugins: [glsl(), tailwindcss()],
     },
-    {
-      provider: fontProviders.google(),
-      name: "Schibsted Grotesk",
-      cssVariable: "--font-schibsted",
-      weights: [400, 500, 600],
-      styles: ["normal"],
-    },
-  ],
 
-  adapter: cloudflare(),
+    devToolbar: {
+        enabled: false,
+    },
+
+    integrations: [react()],
+
+    fonts: [
+        {
+            provider: fontProviders.google(),
+            name: "Prata",
+            cssVariable: "--font-prata",
+        },
+        {
+            provider: fontProviders.google(),
+            name: "Schibsted Grotesk",
+            cssVariable: "--font-schibsted",
+            weights: [400, 500, 600],
+            styles: ["normal"],
+        },
+    ],
 });
